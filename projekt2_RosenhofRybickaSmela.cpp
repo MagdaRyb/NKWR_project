@@ -1,14 +1,14 @@
 /*
 	Program which contains BFS algorithm with slight modification.
 	Solution of the following task:
-	"Niewyobra¿alne, ale centrala obcej wrogiej agencji s¹siaduje z naszym budynkiem. Plan
-	jest prosty, trzeba dotrzeæ do pomieszczenia dowodzenia i aresztowaæ dowódcê. Niestety
-	wszystkie pomieszczenia w centrali obcej wrogiej agencji maj¹ drzwi zamkniête, a my nie mamy
-	dorobionych kluczy. Dlatego przebijemy siê przez œciany. Masz plany budynku w postaci grafu,
-	pomieszczenia to wierzcho³ki, punkt D to punkt dowodzenia, zbiór S to te wierzcho³ki, które
-	s¹siaduj¹ z naszym budynkiem (od jednego z nich zaczniemy), zaœ krawêdzie odpowiadaj¹
-	œcianom, przez które mo¿emy siê przebiæ. Napisz algorytm, który pozwoli ustaliæ trasê do
-	punktu dowodzenia wymagaj¹c¹ przebicia jak najmniejszej liczby œcian."
+	"Niewyobrazalne, ale centrala obcej wrogiej agencji sasiaduje z naszym budynkiem. Plan
+	jest prosty, trzeba dotrzec do pomieszczenia dowodzenia i aresztowaÃ¦ dowÃ³dce. Niestety
+	wszystkie pomieszczenia w centrali obcej wrogiej agencji majÂ¹ drzwi zamkniete, a my nie mamy
+	dorobionych kluczy. Dlatego przebijemy siÃª przez Å“ciany. Masz plany budynku w postaci grafu,
+	pomieszczenia to wierzcholki, punkt D to punkt dowodzenia, zbiÃ³r S to te wierzcholki, ktÃ³re
+	sasiaduja z naszym budynkiem (od jednego z nich zaczniemy), zas krawedzie odpowiadaja
+	Å“cianom, przez ktÃ³re mozemy sie przebic. Napisz algorytm, ktÃ³ry pozwoli ustalic trase do
+	punktu dowodzenia wymagajaca przebicia jak najmniejszej liczby scian."
 
 	HOW TO USE: 
 	1. Create instance of Inputer class.
