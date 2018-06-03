@@ -142,8 +142,10 @@ public:
 
 		// show the found shortest path
 		for (auto iterator = ans.begin(); iterator != ans.end(); ++iterator) {
-			std::cout << *iterator<< " ";
+			cout << *iterator<< " ";
 		}
+
+		cout << endl;
 	}
 };
 
@@ -155,7 +157,7 @@ public:
 	Agency loadParameter(string path) {
 		/*
 		This method loads parameters from file to which path is included as the argument.
-		Returns Agency class instance initialized by the appropiate parameters file.
+		Returns Agency class instance initialized by the appropiate parameters from file.
 		*/
 		Agency agency;
 		string line;
@@ -164,7 +166,7 @@ public:
 		if (graphFile.is_open())
 		{
 			graphFile >> agency.graph.n;
-			cout << agency.graph.n << "\n";
+			// cout << agency.graph.n << "\n";				// printing for debugging purposes
 			agency.graph.tab = new int *[agency.graph.n];
 			for (int i = 0; i < agency.graph.n; i++) {
 				agency.graph.tab[i] = new int [agency.graph.n];
@@ -173,22 +175,22 @@ public:
 			for (int i = 0; i < agency.graph.n; i++) {
 				for (int j = 0; j < agency.graph.n; j++) {
 					graphFile >> tmp;
-					cout << tmp << " ";
+					// cout << tmp << " ";				// printing for debugging purposes
 					agency.graph.tab[i][j] = tmp;
 				}
-				cout << endl;
+				// cout << endl;				// printing for debugging purposes
 			}
 			agency.S = new int [agency.sizeS];
 			for (int j = 0; j < agency.sizeS; j++) {
 				graphFile >> tmp;
-				cout << tmp << " ";
+				// cout << tmp << " ";				// printing for debugging purposes
 				agency.S[j] = tmp;
 			}
-			cout << endl;
+			// cout << endl;				// printing for debugging purposes
 
 
 			graphFile >> agency.D;
-			cout << agency.D << endl;
+			// cout << agency.D << endl; 				// printing for debugging purposes
 			graphFile.close();
 		}
 
