@@ -155,7 +155,7 @@ public:
 	Agency loadParameter(string path) {
 		/*
 		This method loads parameters from file to which path is included as the argument.
-		Returns Agency class instance initialized by the appropiate parameters file.
+		Returns Agency class instance initialized by the appropiate parameters from file.
 		*/
 		Agency agency;
 		string line;
