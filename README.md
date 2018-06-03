@@ -18,23 +18,25 @@ punktu dowodzenia wymagajaca przebicia jak najmniejszej liczby scian."
 	The printed nodes are the searched answer.
 
 ## FILE TEMPLATE:
-	number of graph elements
-	number of neighbour elements (quantity of S set)
-	matrix of graph coincidence, elements are separeted by space
-	S set, elements are also separeted by space 
-	D node - element to which is path searched 
+number of graph elements
+number of neighbour elements (quantity of S set)
+matrix of graph coincidence, elements are separeted by space
+S set, elements are also separeted by space 
+D node - element to which is path searched 
 
-	Example:
-	5 
-	2
-	0 1 0 0 0
-	1 0 1 0 0
-	0 1 0 1 1
-	0 0 1 0 0
-	0 0 1 0 0
-	1 0
-	4
+*Example:*
+```
+5 
+2
+0 1 0 0 0
+1 0 1 0 0
+0 1 0 1 1
+0 0 1 0 0
+0 0 1 0 0
+1 0
+4
+```
 
-****The nodes are represented by numbers, indexed from 0.**
+**The nodes are represented by numbers, indexed from 0.**
 
 *Author: Rosenhof Marcin, Rybicka Magdalena, Smela Damian*
