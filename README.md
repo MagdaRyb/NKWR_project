@@ -1,4 +1,4 @@
-	** Program which contains BFS algorithm with slight modification. **
+	Program which contains BFS algorithm with slight modification.
 	Solution of the following task:
 	"Niewyobrazalne, ale centrala obcej wrogiej agencji sasiaduje z naszym budynkiem. Plan
 	jest prosty, trzeba dotrzec do pomieszczenia dowodzenia i aresztowaæ dowódce. Niestety
