@@ -1,44 +1,47 @@
 /*
-	Program which contains BFS algorithm with slight modification.
-	Solution of the following task:
-	"Niewyobrazalne, ale centrala obcej wrogiej agencji sasiaduje z naszym budynkiem. Plan
-	jest prosty, trzeba dotrzec do pomieszczenia dowodzenia i aresztowaæ dowódce. Niestety
-	wszystkie pomieszczenia w centrali obcej wrogiej agencji maj¹ drzwi zamkniete, a my nie mamy
-	dorobionych kluczy. Dlatego przebijemy siê przez œciany. Masz plany budynku w postaci grafu,
-	pomieszczenia to wierzcholki, punkt D to punkt dowodzenia, zbiór S to te wierzcholki, które
-	sasiaduja z naszym budynkiem (od jednego z nich zaczniemy), zas krawedzie odpowiadaja
-	œcianom, przez które mozemy sie przebic. Napisz algorytm, który pozwoli ustalic trase do
-	punktu dowodzenia wymagajaca przebicia jak najmniejszej liczby scian."
+Program which contains BFS algorithm with slight modification.
+Solution of the following task:
+"Niewyobrazalne, ale centrala obcej wrogiej agencji sasiaduje z naszym budynkiem. Plan
+jest prosty, trzeba dotrzec do pomieszczenia dowodzenia i aresztowac dowódce. Niestety
+wszystkie pomieszczenia w centrali obcej wrogiej agencji maja drzwi zamkniete, a my nie mamy
+dorobionych kluczy. Dlatego przebijemy siê przez œciany. Masz plany budynku w postaci grafu,
+pomieszczenia to wierzcholki, punkt D to punkt dowodzenia, zbiór S to te wierzcholki, które
+sasiaduja z naszym budynkiem (od jednego z nich zaczniemy), zas krawedzie odpowiadaja
+œcianom, przez które mozemy sie przebic. Napisz algorytm, który pozwoli ustalic trase do
+punktu dowodzenia wymagajaca przebicia jak najmniejszej liczby scian."
 
-	HOW TO USE: 
-	1. Create instance of Inputer class.
-	2. Create insatance of Agency class by calling Inputer instance method - loadParameter.
-		Argument is path to file from which the data will be loaded.
-		Template of such a file is shown below this instruction.
-	3. Call instance method findShortest.
-		The printed nodes are the searched answer.
+HOW TO USE:
+1. Create instance of Inputer class.
+2. Create insatance of Agency class by calling Inputer instance method - loadParameter.
+Argument is path to file from which the data will be loaded.
+Template of such a file is shown below this instruction.
+3. Call instance method findShortest.
+The printed nodes are the searched answer.
 
-	FILE TEMPLATE:
-		number of graph elements
-		number of neighbour elements (quantity of S set)
-		matrix of graph coincidence, elements are separeted by space
-		S set, elements are also separeted by space 
-		D node - element to which is path searched 
+In case of calling the from cmd there is a possibility to call it with parameter which is the path to the file with parameters.
+Otherwise the default file is loaded (example001.txt).
 
-		Example:
-		5 
-		2
-		0 1 0 0 0
-		1 0 1 0 0
-		0 1 0 1 1
-		0 0 1 0 0
-		0 0 1 0 0
-		1 0
-		4
+FILE TEMPLATE:
+number of graph elements
+number of neighbour elements (quantity of S set)
+matrix of graph coincidence, elements are separeted by space
+S set, elements are also separeted by space
+D node - element to which is path searched
 
-	The nodes are represented by numbers, indexed from 0. 
+Example:
+5
+2
+0 1 0 0 0
+1 0 1 0 0
+0 1 0 1 1
+0 0 1 0 0
+0 0 1 0 0
+1 0
+4
 
-	Author: Rosenhof Marcin, Rybicka Magdalena, Smela Damian
+The nodes are represented by numbers, indexed from 0.
+
+Author: Rosenhof Marcin, Rybicka Magdalena, Smela Damian
 
 */
 
@@ -54,7 +57,7 @@
 using namespace std;
 
 class Node {
-	/* 
+	/*
 	Class which represents graph node. Used during finding the way from one node to another.
 	*/
 public:
@@ -96,7 +99,7 @@ public:
 		Node * tmp;
 		nodes[s].visited = true;
 		nodes[s].distance = 0;
-		for (int i = 0; i < this->graph.n ; i++) {
+		for (int i = 0; i < this->graph.n; i++) {
 			nodes[i].id = i;
 		}
 
@@ -142,7 +145,7 @@ public:
 
 		// show the found shortest path
 		for (auto iterator = ans.begin(); iterator != ans.end(); ++iterator) {
-			cout << *iterator<< " ";
+			cout << *iterator << " ";
 		}
 
 		cout << endl;
@@ -151,7 +154,7 @@ public:
 
 class Inputer {
 	/*
-	Class responsible for loading parameters. 
+	Class responsible for loading parameters.
 	*/
 public:
 	Agency loadParameter(string path) {
@@ -169,7 +172,7 @@ public:
 			// cout << agency.graph.n << "\n";				// printing for debugging purposes
 			agency.graph.tab = new int *[agency.graph.n];
 			for (int i = 0; i < agency.graph.n; i++) {
-				agency.graph.tab[i] = new int [agency.graph.n];
+				agency.graph.tab[i] = new int[agency.graph.n];
 			}
 			graphFile >> agency.sizeS;
 			for (int i = 0; i < agency.graph.n; i++) {
@@ -180,7 +183,7 @@ public:
 				}
 				// cout << endl;				// printing for debugging purposes
 			}
-			agency.S = new int [agency.sizeS];
+			agency.S = new int[agency.sizeS];
 			for (int j = 0; j < agency.sizeS; j++) {
 				graphFile >> tmp;
 				// cout << tmp << " ";				// printing for debugging purposes
@@ -199,10 +202,16 @@ public:
 	}
 };
 
-int main() {
+int main(int argc, char *argv[]) {
 	Inputer loader;
 	Agency agency;
-	agency = loader.loadParameter("001.txt");
+	if (argc > 1) {
+		agency = loader.loadParameter(argv[1]);
+	}
+	else {
+		agency = loader.loadParameter("example001.txt");
+	}
+
 	agency.findShortest();
 	system("pause");
 	return 0;
