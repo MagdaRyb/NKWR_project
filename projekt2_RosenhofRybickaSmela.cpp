@@ -145,7 +145,7 @@ public:
 
 		// show the found shortest path
 		for (auto iterator = ans.begin(); iterator != ans.end(); ++iterator) {
-			cout << *iterator << " ";
+			cout << *iterator<< " ";
 		}
 
 		cout << endl;
